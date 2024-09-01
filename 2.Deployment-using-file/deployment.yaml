@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: basic-app-dep
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      pod-label-name: basic-app
+  template:
+    # kind: pod   //This is assumed to be present
+    metadata:
+      labels:
+        pod-label-name: basic-app
+    spec:
+      containers:
+        - name: basic-app-ctr
+          image: mangeshbadmore/1.k8-basic-app
